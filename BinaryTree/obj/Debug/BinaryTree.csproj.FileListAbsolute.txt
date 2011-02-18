@@ -1,0 +1,7 @@
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\bin\Debug\BinaryTree.exe
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\bin\Debug\BinaryTree.pdb
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.Properties.Resources.resources
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.csproj.GenerateResource.Cache
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.exe
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.pdb
