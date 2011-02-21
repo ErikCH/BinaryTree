@@ -31,12 +31,11 @@
             this.outputRTB = new System.Windows.Forms.RichTextBox();
             this.addNodeBtn = new System.Windows.Forms.Button();
             this.deleteNodeBtn = new System.Windows.Forms.Button();
-            this.displayNodeBtn = new System.Windows.Forms.Button();
             this.addDeleteUpDwn = new System.Windows.Forms.NumericUpDown();
             this.editBtn = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.editFirstUpDownBx = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.addDeleteUpDwn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editFirstUpDownBx)).BeginInit();
             this.SuspendLayout();
             // 
             // outputRTB
@@ -67,15 +66,6 @@
             this.deleteNodeBtn.UseVisualStyleBackColor = true;
             this.deleteNodeBtn.Click += new System.EventHandler(this.deleteNodeBtn_Click);
             // 
-            // displayNodeBtn
-            // 
-            this.displayNodeBtn.Location = new System.Drawing.Point(23, 331);
-            this.displayNodeBtn.Name = "displayNodeBtn";
-            this.displayNodeBtn.Size = new System.Drawing.Size(100, 30);
-            this.displayNodeBtn.TabIndex = 7;
-            this.displayNodeBtn.Text = "Display";
-            this.displayNodeBtn.UseVisualStyleBackColor = true;
-            // 
             // addDeleteUpDwn
             // 
             this.addDeleteUpDwn.Location = new System.Drawing.Point(12, 55);
@@ -93,22 +83,21 @@
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // numericUpDown1
+            // editFirstUpDownBx
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 251);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 10;
+            this.editFirstUpDownBx.Location = new System.Drawing.Point(12, 251);
+            this.editFirstUpDownBx.Name = "editFirstUpDownBx";
+            this.editFirstUpDownBx.Size = new System.Drawing.Size(120, 20);
+            this.editFirstUpDownBx.TabIndex = 10;
             // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 392);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.editFirstUpDownBx);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.addDeleteUpDwn);
-            this.Controls.Add(this.displayNodeBtn);
             this.Controls.Add(this.deleteNodeBtn);
             this.Controls.Add(this.addNodeBtn);
             this.Controls.Add(this.outputRTB);
@@ -116,9 +105,8 @@
             this.MaximizeBox = false;
             this.Name = "MainGUI";
             this.Text = "Binary Tree Viewer";
-            this.Load += new System.EventHandler(this.MainGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addDeleteUpDwn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editFirstUpDownBx)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -128,10 +116,9 @@
         private System.Windows.Forms.RichTextBox outputRTB;
         private System.Windows.Forms.Button addNodeBtn;
         private System.Windows.Forms.Button deleteNodeBtn;
-        private System.Windows.Forms.Button displayNodeBtn;
         private System.Windows.Forms.NumericUpDown addDeleteUpDwn;
         private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown editFirstUpDownBx;
     }
 }
 

@@ -1,6 +1,13 @@
-﻿// Fig. 26.16: QueueInheritanceLibrary.cs
+﻿// By: Erik Hanchett
+// Date:2/21/2011
+// Assignment: #2
+// Exercise 26.8
+
+// This class was from the book. It stores the methods dealing with manipulating a Queue.
+// Fig. 26.16: QueueInheritanceLibrary.cs
 // Implementing a queue by inheriting from class List.
 using LinkedListLibrary;
+using BinaryTree;
 
 namespace QueueInheritanceLibrary
 {
@@ -8,14 +15,14 @@ namespace QueueInheritanceLibrary
    public class QueueInheritance : List
    {
       // pass name "queue" to List constructor
-      public QueueInheritance()
-         : base( "queue" )
+      public QueueInheritance(string obj)
+         : base( obj )
       {
       } // end constructor
 
       // place dataValue at end of queue by inserting 
       // dataValue at end of linked list
-      public void Enqueue( object dataValue )
+      public void Enqueue( TreeNode dataValue )
       {
          InsertAtBack( dataValue );
       } // end method Enqueue

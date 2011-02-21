@@ -1,10 +1,17 @@
-﻿// Fig. 26.23: BinaryTreeLibrary.cs
+﻿// By: Erik Hanchett
+// Date:2/21/2011
+// Assignment: #2
+// Exercise 26.8
+
+//This class came from the book, it stores the tree node data structure.
+// Fig. 26.23: BinaryTreeLibrary.cs
 // Declaration of class TreeNode and class Tree.
 using System;
 
 namespace BinaryTree
 {
     // class TreeNode declaration
+    
     public class TreeNode
     {
         // automatic property LeftNode
@@ -16,6 +23,7 @@ namespace BinaryTree
         // automatic property RightNode
         public TreeNode RightNode { get; set; }
 
+        private const string NUMBER_ERROR ="Number already exists! Please choose again!";
         // initialize Data and make this a leaf node
         public TreeNode(IComparable nodeData)
         {
@@ -45,6 +53,8 @@ namespace BinaryTree
                 else // continue traversing right subtree
                     RightNode.Insert(insertValue);
             } // end else if
+            else
+                throw new NotFiniteNumberException(NUMBER_ERROR);
         } // end method Insert
     } // end class TreeNode
 

@@ -1,6 +1,13 @@
-﻿// Fig. 26.4: LinkedListLibrary.cs
+﻿// By: Erik Hanchett
+// Date:2/21/2011
+// Assignment: #2
+// Exercise 26.8
+
+// This class came from the book, it hasn't been touched and is used to create lists.
+// Fig. 26.4: LinkedListLibrary.cs
 // ListNode, List and EmptyListException class declarations.
 using System;
+using BinaryTree;
 
 namespace LinkedListLibrary
 {
@@ -15,14 +22,14 @@ namespace LinkedListLibrary
 
       // constructor to create ListNode that refers to dataValue
       // and is last node in list
-      public ListNode( object dataValue )
+      public ListNode( Object dataValue )
          : this( dataValue, null )
       {
       } // end default constructor
 
       // constructor to create ListNode that refers to dataValue
       // and refers to next ListNode in List
-      public ListNode( object dataValue, ListNode nextNode )
+      public ListNode( Object dataValue, ListNode nextNode )
       {
          Data = dataValue;
          Next = nextNode;
@@ -35,6 +42,7 @@ namespace LinkedListLibrary
       private ListNode firstNode;
       private ListNode lastNode;
       private string name; // string like "list" to display
+      private const string EMPTY_LIST = "Empty List";
 
       // construct empty List with specified name
       public List( string listName )
@@ -45,14 +53,14 @@ namespace LinkedListLibrary
 
       // construct empty List with "list" as its name
       public List()
-         : this( "list" )
+         : this( "base")
       {
       } // end default constructor
 
       // Insert object at front of List. If List is empty, 
       // firstNode and lastNode will refer to same object.
       // Otherwise, firstNode refers to new node.
-      public void InsertAtFront( object insertItem )
+      public void InsertAtFront( Object insertItem )
       {
          if ( IsEmpty() )
             firstNode = lastNode = new ListNode( insertItem );
@@ -63,7 +71,7 @@ namespace LinkedListLibrary
       // Insert object at end of List. If List is empty, 
       // firstNode and lastNode will refer to same object.
       // Otherwise, lastNode's Next property refers to new node.
-      public void InsertAtBack( object insertItem )
+      public void InsertAtBack( Object insertItem )
       {
          if ( IsEmpty() )
             firstNode = lastNode = new ListNode( insertItem );
@@ -75,7 +83,7 @@ namespace LinkedListLibrary
       public object RemoveFromFront()
       {
          if ( IsEmpty() )
-            throw new EmptyListException( name );
+            throw new EmptyListException( EMPTY_LIST );
 
          object removeItem = firstNode.Data; // retrieve data
 
@@ -92,7 +100,7 @@ namespace LinkedListLibrary
       public object RemoveFromBack()
       {
          if ( IsEmpty() )
-            throw new EmptyListException( name );
+            throw new EmptyListException(EMPTY_LIST );
 
          object removeItem = lastNode.Data; // retrieve data
 

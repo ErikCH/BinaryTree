@@ -1,4 +1,10 @@
-﻿using System;
+﻿// By: Erik Hanchett
+// Date:2/21/2011
+// Assignment: #2
+// Exercise 26.8
+
+//Entry point to MainGUI program
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
