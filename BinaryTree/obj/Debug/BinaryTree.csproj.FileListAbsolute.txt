@@ -5,3 +5,5 @@ C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\
 C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.csproj.GenerateResource.Cache
 C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.exe
 C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.pdb
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.MainGUI.resources
+C:\Documents and Settings\Erik\My Documents\Visual Studio 2008\Projects\bintree\BinaryTree\obj\Debug\BinaryTree.EditBox.resources
