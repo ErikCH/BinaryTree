@@ -48,7 +48,7 @@ namespace BinaryTree
         public string displayTree()
         {
 
-            tree.InorderTraversal();
+           
 
             return tree.levelOrderTraversal();
            
