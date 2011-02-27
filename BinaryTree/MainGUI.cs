@@ -1,6 +1,6 @@
 ﻿// By: Erik Hanchett
-// Date:2/21/2011
-// Assignment: #2
+// Date:2/28/2011
+// Assignment: #3
 // Exercise 26.8
 
 //This is the mani GUI class. It displays the output for the tree and interacts with the business class.
@@ -20,6 +20,7 @@ namespace BinaryTree
         //fields
         private Business business;
         public enum FORMATBOX{INT, DOUBLE, STRING};
+        public enum ADDDELEDIT { ADD, DELETE};
         public static string FORMAT_EXCEPTION = "Incorrect Format! ";
         
         //constructor, instantiates the business class
@@ -30,6 +31,7 @@ namespace BinaryTree
             business = new Business(formatComboBox.SelectedIndex);
             
         }
+
 
         
         //Opens edit form and displays new dialog after it is closed.
@@ -45,18 +47,7 @@ namespace BinaryTree
         {
             try
             {
-                switch (formatComboBox.SelectedIndex)
-                {
-                    case ((int)FORMATBOX.INT):
-                        business.AddNode(Convert.ToInt16(addDelTextBox.Text));
-                        break;
-                    case ((int)FORMATBOX.DOUBLE):
-                        business.AddNode(Convert.ToDouble(addDelTextBox.Text));
-                        break;
-                    case ((int)FORMATBOX.STRING):
-                        business.AddNode(Convert.ToString(addDelTextBox.Text));
-                        break;
-                }
+                AddEdit((int)ADDDELEDIT.ADD);
 
             }
             catch (NotFiniteNumberException ex)
@@ -83,18 +74,8 @@ namespace BinaryTree
         {
             try
             {
-                switch (formatComboBox.SelectedIndex)
-                {
-                    case ((int)FORMATBOX.INT):
-                        business.DeleteNode(Convert.ToInt16(addDelTextBox.Text));
-                        break;
-                    case ((int)FORMATBOX.DOUBLE):
-                        business.DeleteNode(Convert.ToDouble(addDelTextBox.Text));
-                        break;
-                    case ((int)FORMATBOX.STRING):
-                        business.DeleteNode(Convert.ToString(addDelTextBox.Text));
-                        break;
-                }
+                AddEdit((int)ADDDELEDIT.DELETE);
+                
                 
             }
             catch (NullReferenceException ex)
@@ -104,9 +85,40 @@ namespace BinaryTree
                 display();
         }
 
+        //add or delete node
+        private void AddEdit(int selected)
+        {
+            switch (formatComboBox.SelectedIndex)
+            {
+                case((int)FORMATBOX.INT):
+                    if (selected == (int)ADDDELEDIT.ADD)
+                        business.AddNode(Convert.ToInt32(addDelTextBox.Text));
+                    else
+                        business.DeleteNode(Convert.ToInt32(addDelTextBox.Text));
+                    break;
+                case ((int)FORMATBOX.DOUBLE):
+                    if (selected == (int)ADDDELEDIT.ADD)
+                        business.AddNode(Convert.ToDouble(addDelTextBox.Text));
+                    else
+                        business.DeleteNode(Convert.ToDouble(addDelTextBox.Text));
+                    break;
+                case ((int)FORMATBOX.STRING):
+                    if (selected == (int)ADDDELEDIT.ADD)
+                        business.AddNode(addDelTextBox.Text);
+                    else
+                        business.DeleteNode(addDelTextBox.Text);
+                    break;
+
+
+            }
+        }
+
+     
+    
         private void formatComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             business = new Business(formatComboBox.SelectedIndex);
+            outputRTB.Text = "";
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿// By: Erik Hanchett
-// Date:2/21/2011
-// Assignment: #2
+// Date:2/28/2011
+// Assignment: #3
 // Exercise 26.8
 
 //Entry point to MainGUI program

@@ -1,9 +1,10 @@
 ﻿// By: Erik Hanchett
-// Date:2/21/2011
-// Assignment: #2
+// Date:2/28/2011
+// Assignment: #3
 // Exercise 26.8
 
 //This class came from the book as well. It has been modified to add in new methods for level order traversal, findparent, edit and delete.
+// I also added in generics for assignment 3. 
 using System;
 using System.Collections.Generic;
 using System.Linq;

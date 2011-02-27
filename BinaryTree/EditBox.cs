@@ -1,6 +1,6 @@
 ﻿// By: Erik Hanchett
-// Date:2/21/2011
-// Assignment: #2
+// Date:2/28/2011
+// Assignment: #3
 // Exercise 26.8
 
 //This class handles the editing of a value. It interacts with the business class. 
@@ -38,10 +38,10 @@ namespace BinaryTree
                 switch (box)
                 {
                     case ((int)MainGUI.FORMATBOX.INT):
-                        business.EditNode(firstValue, Convert.ToInt16(edit2TextBox.Text));
+                        business.EditNode(Convert.ToInt32(firstValue), Convert.ToInt32(edit2TextBox.Text));
                         break;
                     case ((int)MainGUI.FORMATBOX.DOUBLE):
-                        business.EditNode(firstValue, Convert.ToDouble(edit2TextBox.Text));
+                        business.EditNode(Convert.ToDouble(firstValue), Convert.ToDouble(edit2TextBox.Text));
                         break;
                     case ((int)MainGUI.FORMATBOX.STRING):
                         business.EditNode(firstValue, edit2TextBox.Text);
