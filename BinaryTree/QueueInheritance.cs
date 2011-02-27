@@ -12,7 +12,7 @@ using BinaryTree;
 namespace QueueInheritanceLibrary
 {
    // class QueueInheritance inherits List's capabilities
-   public class QueueInheritance : List
+   public class QueueInheritance<T> : List
    {
       // pass name "queue" to List constructor
       public QueueInheritance(string obj)
@@ -22,7 +22,7 @@ namespace QueueInheritanceLibrary
 
       // place dataValue at end of queue by inserting 
       // dataValue at end of linked list
-      public void Enqueue( TreeNode dataValue )
+      public void Enqueue( TreeNode<T> dataValue )
       {
          InsertAtBack( dataValue );
       } // end method Enqueue

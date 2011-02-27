@@ -19,19 +19,23 @@ namespace BinaryTree
     {
         //fields
         private Business business;
+        public enum FORMATBOX{INT, DOUBLE, STRING};
+        public static string FORMAT_EXCEPTION = "Incorrect Format! ";
         
         //constructor, instantiates the business class
         public MainGUI()
         {
             InitializeComponent();
-            business = new Business();
+            formatComboBox.SelectedIndex = 0;
+            business = new Business(formatComboBox.SelectedIndex);
+            
         }
 
         
         //Opens edit form and displays new dialog after it is closed.
         private void editBtn_Click(object sender, EventArgs e)
         {
-            EditBox ed = new EditBox(business, editFirstUpDownBx.Value);
+            EditBox ed = new EditBox(business, editTextBox.Text, (int)formatComboBox.SelectedIndex );
             ed.ShowDialog();
             display();
         }
@@ -41,11 +45,27 @@ namespace BinaryTree
         {
             try
             {
-                business.addNode(addDeleteUpDwn.Value);
+                switch (formatComboBox.SelectedIndex)
+                {
+                    case ((int)FORMATBOX.INT):
+                        business.AddNode(Convert.ToInt16(addDelTextBox.Text));
+                        break;
+                    case ((int)FORMATBOX.DOUBLE):
+                        business.AddNode(Convert.ToDouble(addDelTextBox.Text));
+                        break;
+                    case ((int)FORMATBOX.STRING):
+                        business.AddNode(Convert.ToString(addDelTextBox.Text));
+                        break;
+                }
+
             }
             catch (NotFiniteNumberException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(FORMAT_EXCEPTION + ex.Message);
             }
             display();
         }
@@ -56,18 +76,37 @@ namespace BinaryTree
             outputRTB.Text = business.displayTree();
         }
 
+       
+
         //deletes nodes
         private void deleteNodeBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                business.deleteNode(addDeleteUpDwn.Value);
+                switch (formatComboBox.SelectedIndex)
+                {
+                    case ((int)FORMATBOX.INT):
+                        business.DeleteNode(Convert.ToInt16(addDelTextBox.Text));
+                        break;
+                    case ((int)FORMATBOX.DOUBLE):
+                        business.DeleteNode(Convert.ToDouble(addDelTextBox.Text));
+                        break;
+                    case ((int)FORMATBOX.STRING):
+                        business.DeleteNode(Convert.ToString(addDelTextBox.Text));
+                        break;
+                }
+                
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show(ex.Message);
             }
                 display();
+        }
+
+        private void formatComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            business = new Business(formatComboBox.SelectedIndex);
         }
     }
 }

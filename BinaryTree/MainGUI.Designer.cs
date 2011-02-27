@@ -31,11 +31,11 @@
             this.outputRTB = new System.Windows.Forms.RichTextBox();
             this.addNodeBtn = new System.Windows.Forms.Button();
             this.deleteNodeBtn = new System.Windows.Forms.Button();
-            this.addDeleteUpDwn = new System.Windows.Forms.NumericUpDown();
             this.editBtn = new System.Windows.Forms.Button();
-            this.editFirstUpDownBx = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.addDeleteUpDwn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editFirstUpDownBx)).BeginInit();
+            this.addDelTextBox = new System.Windows.Forms.TextBox();
+            this.editTextBox = new System.Windows.Forms.TextBox();
+            this.formatComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // outputRTB
@@ -48,7 +48,7 @@
             // 
             // addNodeBtn
             // 
-            this.addNodeBtn.Location = new System.Drawing.Point(23, 17);
+            this.addNodeBtn.Location = new System.Drawing.Point(23, 105);
             this.addNodeBtn.Name = "addNodeBtn";
             this.addNodeBtn.Size = new System.Drawing.Size(100, 31);
             this.addNodeBtn.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // deleteNodeBtn
             // 
-            this.deleteNodeBtn.Location = new System.Drawing.Point(23, 81);
+            this.deleteNodeBtn.Location = new System.Drawing.Point(23, 169);
             this.deleteNodeBtn.Name = "deleteNodeBtn";
             this.deleteNodeBtn.Size = new System.Drawing.Size(100, 31);
             this.deleteNodeBtn.TabIndex = 4;
@@ -66,16 +66,9 @@
             this.deleteNodeBtn.UseVisualStyleBackColor = true;
             this.deleteNodeBtn.Click += new System.EventHandler(this.deleteNodeBtn_Click);
             // 
-            // addDeleteUpDwn
-            // 
-            this.addDeleteUpDwn.Location = new System.Drawing.Point(12, 55);
-            this.addDeleteUpDwn.Name = "addDeleteUpDwn";
-            this.addDeleteUpDwn.Size = new System.Drawing.Size(120, 20);
-            this.addDeleteUpDwn.TabIndex = 8;
-            // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(23, 214);
+            this.editBtn.Location = new System.Drawing.Point(23, 302);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(100, 31);
             this.editBtn.TabIndex = 9;
@@ -83,21 +76,53 @@
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // editFirstUpDownBx
+            // addDelTextBox
             // 
-            this.editFirstUpDownBx.Location = new System.Drawing.Point(12, 251);
-            this.editFirstUpDownBx.Name = "editFirstUpDownBx";
-            this.editFirstUpDownBx.Size = new System.Drawing.Size(120, 20);
-            this.editFirstUpDownBx.TabIndex = 10;
+            this.addDelTextBox.Location = new System.Drawing.Point(23, 143);
+            this.addDelTextBox.Name = "addDelTextBox";
+            this.addDelTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addDelTextBox.TabIndex = 10;
+            // 
+            // editTextBox
+            // 
+            this.editTextBox.Location = new System.Drawing.Point(23, 339);
+            this.editTextBox.Name = "editTextBox";
+            this.editTextBox.Size = new System.Drawing.Size(100, 20);
+            this.editTextBox.TabIndex = 11;
+            // 
+            // formatComboBox
+            // 
+            this.formatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.formatComboBox.FormattingEnabled = true;
+            this.formatComboBox.Items.AddRange(new object[] {
+            "INT",
+            "DOUBLE",
+            "STRING"});
+            this.formatComboBox.Location = new System.Drawing.Point(12, 48);
+            this.formatComboBox.Name = "formatComboBox";
+            this.formatComboBox.Size = new System.Drawing.Size(121, 21);
+            this.formatComboBox.TabIndex = 12;
+            this.formatComboBox.SelectedIndexChanged += new System.EventHandler(this.formatComboBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(46, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Format:";
             // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 392);
-            this.Controls.Add(this.editFirstUpDownBx);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.formatComboBox);
+            this.Controls.Add(this.editTextBox);
+            this.Controls.Add(this.addDelTextBox);
             this.Controls.Add(this.editBtn);
-            this.Controls.Add(this.addDeleteUpDwn);
             this.Controls.Add(this.deleteNodeBtn);
             this.Controls.Add(this.addNodeBtn);
             this.Controls.Add(this.outputRTB);
@@ -105,9 +130,8 @@
             this.MaximizeBox = false;
             this.Name = "MainGUI";
             this.Text = "Binary Tree Viewer";
-            ((System.ComponentModel.ISupportInitialize)(this.addDeleteUpDwn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editFirstUpDownBx)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -116,9 +140,11 @@
         private System.Windows.Forms.RichTextBox outputRTB;
         private System.Windows.Forms.Button addNodeBtn;
         private System.Windows.Forms.Button deleteNodeBtn;
-        private System.Windows.Forms.NumericUpDown addDeleteUpDwn;
         private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.NumericUpDown editFirstUpDownBx;
+        private System.Windows.Forms.TextBox addDelTextBox;
+        private System.Windows.Forms.TextBox editTextBox;
+        private System.Windows.Forms.ComboBox formatComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

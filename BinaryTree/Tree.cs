@@ -13,10 +13,10 @@ using QueueInheritanceLibrary;
 namespace BinaryTree
 {
     // class Tree declaration
-    public class Tree
+    public class Tree<T>
     {
-        public TreeNode root;
-        public QueueInheritance que;
+        public TreeNode<T> root;
+        public QueueInheritance<T> que;
         public const string LEVEL_ORDER_TEXT = "Level Order Traversal\n";
         public const string DNE = "Does not exist!";
         public const string ROOT_TEXT = "Root: ";
@@ -34,13 +34,13 @@ namespace BinaryTree
         public void InsertNode(IComparable insertValue)
         {
             if (root == null)
-                root = new TreeNode(insertValue);
+                root = new TreeNode<T>(insertValue);
             else
                 root.Insert(insertValue);
         } // end method InsertNode
 
         //finds value and deletes it, uses recursion
-        public bool delete(IComparable nodeData, TreeNode current)
+        public bool delete(IComparable nodeData, TreeNode<T> current)
         {
 
             if (current == null)
@@ -51,7 +51,7 @@ namespace BinaryTree
 
             if (nodeData.CompareTo(current.Data) == 0) // on correct node to delete
             {
-                TreeNode parent = findParent(nodeData);
+                TreeNode<T> parent = findParent(nodeData);
                 //both children are null
                 if (current.LeftNode == null && current.RightNode == null)
                 {
@@ -103,7 +103,7 @@ namespace BinaryTree
                 //left and right nodes are not null
                 else if (current.LeftNode != null && current.RightNode != null)
                 {
-                    TreeNode temp = current.RightNode;
+                    TreeNode<T> temp = current.RightNode;
                     if (temp.LeftNode == null && temp.RightNode == null)
                     {
                         temp.LeftNode = current.LeftNode;
@@ -125,8 +125,8 @@ namespace BinaryTree
                     {
                         if (current.RightNode.LeftNode != null)
                         {
-                            TreeNode rightNodes;
-                            TreeNode leftNodes;
+                            TreeNode<T> rightNodes;
+                            TreeNode<T> leftNodes;
                             leftNodes = current.RightNode;
                             rightNodes = current.RightNode.LeftNode;
                             while (rightNodes.LeftNode != null)
@@ -141,7 +141,7 @@ namespace BinaryTree
                         }
                         else
                         {
-                            TreeNode tmp;
+                            TreeNode<T> tmp;
                             tmp = current.RightNode;
                             current.Data = tmp.Data;
                             current.RightNode = tmp.RightNode;
@@ -170,10 +170,10 @@ namespace BinaryTree
         }
 
         //finds Parent of current node
-        public TreeNode findParent(IComparable value)
+        public TreeNode<T> findParent(IComparable value)
         {
-            TreeNode node = root;
-            TreeNode last = null;
+            TreeNode<T> node = root;
+            TreeNode<T> last = null;
             while (node != null && node.Data.CompareTo(value) != 0)
             {
                 last = node;
@@ -199,19 +199,19 @@ namespace BinaryTree
         public string levelOrderTraversal()
         {
             int level = 0;
-            TreeNode temp;
+            TreeNode<T> temp;
             string result = LEVEL_ORDER_TEXT;
             
             if (root != null)
             {
-                que = new QueueInheritance(LEVEL_ORDER_TEXT);
+                que = new QueueInheritance<T>(LEVEL_ORDER_TEXT);
                 que.Enqueue(root);
                 result += ROOT_TEXT + root.Data;
-                TreeNode lastParent = root;
+                TreeNode<T> lastParent = root;
                 while (!que.IsEmpty())
                 {
                     
-                    temp = (TreeNode)que.Dequeue();
+                    temp = (TreeNode<T>)que.Dequeue();
                     if (lastParent == findParentLevel(level, temp))
                     {
                         if (level != 0)
@@ -236,9 +236,9 @@ namespace BinaryTree
             return result;
         }
 
-        public TreeNode findParentLevel(int level, TreeNode temp)
+        public TreeNode<T> findParentLevel(int level, TreeNode<T> temp)
         {
-            TreeNode tree = temp; 
+            TreeNode<T> tree = temp; 
             for (int i = 0; i < level; i++)
                 tree = findParent(tree.Data);
 
@@ -252,7 +252,7 @@ namespace BinaryTree
         } // end method PreorderTraversal
 
         // recursive method to perform preorder traversal
-        private void PreorderHelper(TreeNode node)
+        private void PreorderHelper(TreeNode<T> node)
         {
             if (node != null)
             {
@@ -274,7 +274,7 @@ namespace BinaryTree
         } // end method InorderTraversal
 
         // recursive method to perform inorder traversal
-        private void InorderHelper(TreeNode node)
+        private void InorderHelper(TreeNode<T> node)
         {
             
             if (node != null)
@@ -300,8 +300,9 @@ namespace BinaryTree
             PostorderHelper(root);
         } // end method PostorderTraversal
 
+        
         // recursive method to perform postorder traversal
-        private void PostorderHelper(TreeNode node)
+        private void PostorderHelper(TreeNode<T> node)
         {
             if (node != null)
             {

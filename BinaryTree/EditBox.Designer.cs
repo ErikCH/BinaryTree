@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.edNodeLbl = new System.Windows.Forms.Label();
-            this.editSecondUpDwnBx = new System.Windows.Forms.NumericUpDown();
             this.addEditBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.editSecondUpDwnBx)).BeginInit();
+            this.edit2TextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // edNodeLbl
@@ -43,13 +42,6 @@
             this.edNodeLbl.TabIndex = 0;
             this.edNodeLbl.Text = "New Number";
             // 
-            // editSecondUpDwnBx
-            // 
-            this.editSecondUpDwnBx.Location = new System.Drawing.Point(82, 54);
-            this.editSecondUpDwnBx.Name = "editSecondUpDwnBx";
-            this.editSecondUpDwnBx.Size = new System.Drawing.Size(120, 20);
-            this.editSecondUpDwnBx.TabIndex = 1;
-            // 
             // addEditBtn
             // 
             this.addEditBtn.Location = new System.Drawing.Point(101, 85);
@@ -60,19 +52,25 @@
             this.addEditBtn.UseVisualStyleBackColor = true;
             this.addEditBtn.Click += new System.EventHandler(this.addEditBtn_Click);
             // 
+            // edit2TextBox
+            // 
+            this.edit2TextBox.Location = new System.Drawing.Point(91, 50);
+            this.edit2TextBox.Name = "edit2TextBox";
+            this.edit2TextBox.Size = new System.Drawing.Size(100, 20);
+            this.edit2TextBox.TabIndex = 3;
+            // 
             // EditBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 120);
+            this.Controls.Add(this.edit2TextBox);
             this.Controls.Add(this.addEditBtn);
-            this.Controls.Add(this.editSecondUpDwnBx);
             this.Controls.Add(this.edNodeLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "EditBox";
             this.Text = "Edit Box";
-            ((System.ComponentModel.ISupportInitialize)(this.editSecondUpDwnBx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.Label edNodeLbl;
-        private System.Windows.Forms.NumericUpDown editSecondUpDwnBx;
         private System.Windows.Forms.Button addEditBtn;
+        private System.Windows.Forms.TextBox edit2TextBox;
     }
 }

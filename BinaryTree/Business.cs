@@ -15,32 +15,51 @@ namespace BinaryTree
     public class Business
     {
         //fields
-        private Tree tree;
-        
+        private Tree<int> treeInt;
+        private Tree<double> treeDouble;
+        private Tree<string> treeString;
+        int val;
         //constructor
-        public Business()
+        public Business(int val)
         {
-            tree = new Tree();
+            this.val = val;
+            if (val == (int)MainGUI.FORMATBOX.INT)
+                treeInt = new Tree<int>();
+            else if (val == (int)MainGUI.FORMATBOX.DOUBLE)
+                treeDouble = new Tree<double>();
+            else
+                treeString = new Tree<string>();
         }
         //add node
-        public void addNode(IComparable value)
+        public void AddNode(IComparable value)
         {
-            tree.InsertNode(value);
+
+            FindTree().InsertNode(value);
         }
 
-        //deletes node
-        public void deleteNode(IComparable value)
+        private Tree<T> FindTree()
         {
-            tree.delete(value, tree.root);
+            if (val == (int)MainGUI.FORMATBOX.INT)
+                return treeInt;
+            else if (val == (int)MainGUI.FORMATBOX.DOUBLE)
+                return treeDouble;
+            else
+                return treeString;
+            
+        }
+        //deletes node
+        public void DeleteNode(IComparable value)
+        {
+            FindTree().delete(value, tree.root);
                
 
             displayTree();
         }
 
         //edits nodes
-        public void editNode(IComparable dst, IComparable src)
+        public void EditNode(IComparable dst, IComparable src)
         {
-            tree.editNode(dst, src);
+            FindTree().editNode(dst, src);
                 
         }
 
@@ -50,7 +69,7 @@ namespace BinaryTree
 
            
 
-            return tree.levelOrderTraversal();
+            return FindTree().levelOrderTraversal();
            
       
            

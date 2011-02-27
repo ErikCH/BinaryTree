@@ -18,14 +18,16 @@ namespace BinaryTree
     public partial class EditBox : Form
     {
         //fields
-        private decimal firstValue;
+        private string firstValue;
         private Business business;
+        private int box;
         //constructor passed in first value and business class
-        public EditBox(Business business, decimal val)
+        public EditBox(Business business, string val, int box)
         {
             InitializeComponent();
             firstValue = val;
             this.business = business;
+            this.box = box;
         }
 
         //this calls the editNode method for business and closes the window.
@@ -33,20 +35,35 @@ namespace BinaryTree
         {
             try
             {
+                switch (box)
+                {
+                    case ((int)MainGUI.FORMATBOX.INT):
+                        business.EditNode(firstValue, Convert.ToInt16(edit2TextBox.Text));
+                        break;
+                    case ((int)MainGUI.FORMATBOX.DOUBLE):
+                        business.EditNode(firstValue, Convert.ToDouble(edit2TextBox.Text));
+                        break;
+                    case ((int)MainGUI.FORMATBOX.STRING):
+                        business.EditNode(firstValue, edit2TextBox.Text);
+                        break;
+                }
 
-                business.editNode(firstValue, editSecondUpDwnBx.Value);
-                
-               
+
+
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show(ex.Message);
-                
+
             }
             catch (NotFiniteNumberException ex)
             {
                 MessageBox.Show(ex.Message);
-                    
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(MainGUI.FORMAT_EXCEPTION + ex.Message);
             }
             finally
             {

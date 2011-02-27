@@ -12,16 +12,16 @@ namespace BinaryTree
 {
     // class TreeNode declaration
     
-    public class TreeNode
+    public class TreeNode<T>:IComparable<TreeNode<T>>
     {
         // automatic property LeftNode
-        public TreeNode LeftNode { get; set; }
+        public TreeNode<T> LeftNode { get; set; }
 
         // automatic property Data
         public IComparable Data { get; set; }
 
         // automatic property RightNode
-        public TreeNode RightNode { get; set; }
+        public TreeNode<T> RightNode { get; set; }
 
         private const string NUMBER_ERROR ="Number already exists! Please choose again!";
         // initialize Data and make this a leaf node
@@ -31,7 +31,10 @@ namespace BinaryTree
             LeftNode = RightNode = null; // node has no children
         } // end constructor
 
-        
+        public int CompareTo(TreeNode<T> t)
+        {
+            return (this.Data.CompareTo(t.Data));
+        }
         
         // insert TreeNode into Tree that contains nodes;
         // ignore duplicate values
@@ -41,7 +44,7 @@ namespace BinaryTree
             {
                 // insert new TreeNode
                 if (LeftNode == null)
-                    LeftNode = new TreeNode(insertValue);
+                    LeftNode = new TreeNode<T>(insertValue);
                 else // continue traversing left subtree
                     LeftNode.Insert(insertValue);
             } // end if
@@ -49,7 +52,7 @@ namespace BinaryTree
             {
                 // insert new TreeNode
                 if (RightNode == null)
-                    RightNode = new TreeNode(insertValue);
+                    RightNode = new TreeNode<T>(insertValue);
                 else // continue traversing right subtree
                     RightNode.Insert(insertValue);
             } // end else if
